@@ -1,0 +1,24 @@
+server:
+  port: 9090
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: API_GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: Forecast-Weather-Application
+          uri: lb://Forecast-Weather-Application
+          predicates:
+            - Path=/weather/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: Forecast-Weather-Application
+                fallbackuri: forward:/weatherServiceFallback
+
+
+
+
