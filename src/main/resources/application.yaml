@@ -10,7 +10,7 @@ spring:
     gateway:
       routes:
         - id: Forecast-Weather-Application
-          uri: lb://Forecast-Weather-Application
+          uri: http://forecast-weather-svc
           predicates:
             - Path=/weather/**
           filters:
