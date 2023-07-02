@@ -13,11 +13,6 @@ spring:
           uri: http://forecast-weather-svc
           predicates:
             - Path=/weather/**
-#          filters:
-#            - name: CircuitBreaker
-#              args:
-#                name: Forecast-Weather-Application
-#                fallbackuri: forward:/weatherServiceFallback
 
 
 
